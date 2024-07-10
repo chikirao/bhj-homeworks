@@ -5,7 +5,7 @@ let timeCounter = setInterval(() => {
     if (hideTime == 0) {
         alert('Вы победили в конкурсе!');
         clearInterval(timeCounter);
-        return
+        return;
     }
     hideTime -= 1;
     const displayTime = new Date(hideTime * 1000);

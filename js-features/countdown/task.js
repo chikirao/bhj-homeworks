@@ -1,15 +1,13 @@
-const timer = document.getElementById('timer')
+const timer = document.getElementById('timer');
+let hideTime = Number(timer.textContent);
 
-
-setInterval(() => {
-    if (Number(timer.textContent) == 0) {
-        alert('Вы победили в конкурсе!')
+let timeCounter = setInterval(() => {
+    if (hideTime == 0) {
+        alert('Вы победили в конкурсе!');
+        clearInterval(timeCounter);
         return
     }
-    timer.textContent = Number(timer.textContent) - 1
-}, 1000)
-
-// let hideTime = Number(timer.textContent)
-// let displayTime = Date(Number(timer.textContent) * 1000)
-// .toString()
-// .slice(11, 19);
+    hideTime -= 1;
+    const displayTime = new Date(hideTime * 1000);
+    timer.textContent = displayTime.toISOString().slice(11, 19);;
+}, 1000);
